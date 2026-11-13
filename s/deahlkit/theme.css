@@ -1,11 +1,18 @@
+main h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 600; color: var(--muted, #63636b); }
+.wordmark .wm-0 { color: #0b74b8; }
+.wordmark .wm-1 { color: #e8a020; }
 :root {
-  --primary: #1f3864;
+  --primary: #0b74b8;
   --accent: #8a5200;
   --highlight: #c9e4f2;
   --heading: #1f3864;
-  --text: #1c1c1c;
-  --background: #f7f8fa;
-  --surface: #ffffff;
-  --border: #d4d7dd;
-  --font: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --label: #0b74b8;
+  --text: #1a1a1a;
+  --muted: #63636b;
+  --background: #ffffff;
+  --surface: #f7f8fa;
+  --border: #e6e6e9;
+  --h1-weight: 800;
+  --radius: 15px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }

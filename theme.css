@@ -2,7 +2,7 @@
 @font-face { font-family: 'Open Sans'; font-weight: 600; font-display: swap; src: url('theme/open-sans-600.woff2') format('woff2'); }
 @font-face { font-family: 'Open Sans'; font-weight: 700; font-display: swap; src: url('theme/open-sans-700.woff2') format('woff2'); }
 .project.accent-amber { border-top-color: #003399; }
-.project.accent-deahlkit { border-top-color: #1f3864; }
+.project.accent-deahlkit { border-top-color: #0b74b8; }
 :root {
   --primary: #003399;
   --accent: #7a5c00;
