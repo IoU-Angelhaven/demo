@@ -3,6 +3,8 @@
 @font-face { font-family: 'Open Sans'; font-weight: 700; font-display: swap; src: url('theme/open-sans-700.woff2') format('woff2'); }
 .project.accent-amber { border-top-color: #003399; }
 .project.accent-deahlkit { border-top-color: #0b74b8; }
+.project.accent-deahlkit .wm-0 { color: #0b74b8; }
+.project.accent-deahlkit .wm-1 { color: #e8a020; }
 :root {
   --primary: #003399;
   --accent: #7a5c00;

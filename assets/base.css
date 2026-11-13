@@ -63,3 +63,6 @@ nav .sep { border-left: 1px solid var(--border); margin: 0 .2rem; }
 .project.upcoming { border-style: dashed; border-top-style: dashed; background: transparent; } .project .ws { font-size: .93rem; }
 .wordmark { font-size: 2.4rem; font-weight: 800; letter-spacing: -.02em; line-height: 1; } .wordmark-tag { color: var(--muted, #63636b); font-size: 1rem; }
 .flogos { background: #fff; padding: .5rem 0; } .flogos img { max-width: 100%; height: auto; display: block; }
+.btnrow { display: flex; flex-wrap: wrap; gap: .6rem; } .btnrow .button { margin-top: .25rem; }
+.button.light { background: var(--surface); color: var(--primary); border: 1px solid var(--primary); }
+.plogo .wordmark { font-size: 2rem; }
