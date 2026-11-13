@@ -1,0 +1,16 @@
+@font-face { font-family: 'Open Sans'; font-weight: 400; font-display: swap; src: url('theme/open-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 600; font-display: swap; src: url('theme/open-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 700; font-display: swap; src: url('theme/open-sans-700.woff2') format('woff2'); }
+.project.accent-amber { border-top-color: #003399; }
+.project.accent-deahlkit { border-top-color: #1f3864; }
+:root {
+  --primary: #003399;
+  --accent: #7a5c00;
+  --highlight: #ffcc00;
+  --heading: #003399;
+  --text: #1a1a1a;
+  --background: #f3f5fa;
+  --surface: #ffffff;
+  --border: #c5cde0;
+  --font: 'Open Sans', Arial, sans-serif;
+}

@@ -1,0 +1,14 @@
+@font-face { font-family: 'Open Sans'; font-weight: 400; font-display: swap; src: url('theme/open-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 600; font-display: swap; src: url('theme/open-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 700; font-display: swap; src: url('theme/open-sans-700.woff2') format('woff2'); }
+:root {
+  --primary: #003399;
+  --accent: #c4461a;
+  --highlight: #e25d25;
+  --heading: #003399;
+  --text: #1a1a1a;
+  --background: #f4f5f6;
+  --surface: #ffffff;
+  --border: #c9ced3;
+  --font: 'Open Sans', Arial, sans-serif;
+}

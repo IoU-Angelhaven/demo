@@ -1,0 +1,11 @@
+:root {
+  --primary: #1f3864;
+  --accent: #8a5200;
+  --highlight: #c9e4f2;
+  --heading: #1f3864;
+  --text: #1c1c1c;
+  --background: #f7f8fa;
+  --surface: #ffffff;
+  --border: #d4d7dd;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}

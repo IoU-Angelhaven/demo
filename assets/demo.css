@@ -1,0 +1,4 @@
+.demobar { margin: 0; padding: .45rem 1.25rem; background: #fff3c4; color: #3d3200; font-size: .9rem; text-align: center; border-bottom: 1px solid #d9c66a; }
+.demobar a { color: inherit; margin: 0 .25rem; padding: .05rem .5rem; border-radius: 1rem; }
+.demobar a[aria-current] { background: #3d3200; color: #fff3c4; text-decoration: none; font-weight: 700; }
+.demonote { position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%); background: #1a1a1a; color: #fff; padding: .7rem 1.1rem; border-radius: .4rem; max-width: 30rem; z-index: 9; }
