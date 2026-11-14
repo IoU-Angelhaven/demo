@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>DEAHLKit</title>
+<link rel="stylesheet" href="https://deahlkit.ehealth-implementation.eu/languages/kurs/player/styles/font-open-sans.css">
+<style>
+/* Den öppna ingången (index.html): kursen, språken, hur man får den och arbetet bakom. Studio = inloggad. Samma form som Course.html. */
+:root{
+  --blue:#0b74b8; --blue-ink:#095f97; --navy:#1F3864; --gold:#e8a020; --gold-ink:#8a5200;
+  --hm:#c9e4f2; --hcp:#fbeccb; --hm-soft:#eef7fc; --hcp-soft:#fef8ec;
+  --ink:#1d2939; --muted:#5f717b; --bg:#ffffff; --soft:#f4f6fa; --border:#dde2ec; --ok:#2e7d32; --ok-soft:#e8f3ea; --chg:#b3261e;
+  --shadow:0 1px 2px rgb(29 41 57/.04),0 6px 20px rgb(29 41 57/.06); --radius:6px; --wrap:75rem; --font:"Open Sans",Arial,sans-serif;
+  --fg:var(--ink); --line:var(--border); --panel:var(--soft); --accent:var(--blue); --flag:var(--chg);
+}
+@media(prefers-color-scheme:dark){:root{
+  --blue:#6fb3e3; --blue-ink:#8cc4ec; --navy:#cfdcf2; --gold-ink:#f0b85a; --hm:#1d3a4d; --hcp:#4a3a1a; --hm-soft:#18262f; --hcp-soft:#2a2418;
+  --ink:#e6e9ef; --muted:#9aa6b2; --bg:#14171c; --soft:#1b1f26; --border:#2d333d; --ok:#7bd88f; --ok-soft:#1c2c20; --chg:#ff8a80;
+  --shadow:0 1px 2px rgb(0 0 0/.3),0 6px 20px rgb(0 0 0/.25)}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--font);font-size:16px;line-height:1.65;color:var(--ink);background:var(--bg)}
+a{color:var(--blue);text-underline-offset:.18em} a:hover{color:var(--gold-ink)}
+:focus-visible{outline:3px solid #ffcc00;outline-offset:2px;box-shadow:0 0 0 5px var(--navy)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+.muted{color:var(--muted)}
+/* topp */
+.top{border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:10}
+.top .wrap{display:flex;align-items:center;gap:22px;min-height:58px;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:800;letter-spacing:-.02em;text-decoration:none} .logo .a{color:#0b74b8} .logo .b{color:#e8a020}
+.nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14.5px} .nav a{color:var(--ink);text-decoration:none} .nav a:hover{color:var(--blue)}
+.studio{margin-left:auto;font-size:14px} .studio .auth{float:none;margin:0}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--blue);color:var(--blue);background:var(--bg);border-radius:var(--radius);padding:9px 16px;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--blue);color:#fff} .btn.pri{background:var(--blue);color:#fff} .btn.pri:hover{background:var(--blue-ink)}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--soft),var(--bg));padding:46px 0 40px;border-bottom:1px solid var(--border)}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.8vw,3.5rem);font-weight:300;line-height:1.12;color:var(--blue);margin:12px 0 14px;letter-spacing:-.01em}
+.hero p{font-size:18px;margin:0 0 22px;max-width:40rem} .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .art{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px} .hero .art div{background:var(--hm);border-radius:10px;aspect-ratio:1;display:grid;place-items:center;overflow:hidden}
+.hero .art div:nth-child(even){background:var(--hcp)} .hero .art img{width:86%;height:86%;object-fit:contain}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero .art{grid-template-columns:repeat(6,1fr)}}
+section{padding:54px 0 10px} section h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:300;color:var(--blue);margin:6px 0 10px;line-height:1.2}
+.sub{color:var(--muted);max-width:50rem;font-size:16.5px;margin:0 0 22px}
+/* moduler */
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.mod{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.mod:hover{transform:translateY(-2px);border-color:var(--blue);color:var(--ink)} .mod .im{background:var(--hm);height:130px;display:grid;place-items:center} .mod .im img{max-height:112px}
+.mod .tx{padding:12px 16px 16px} .mod .tx b{display:block;font-weight:400;font-size:17px;line-height:1.3;margin-top:2px}
+/* språk */
+.langs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.lrow{display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px;background:var(--bg);text-decoration:none;color:var(--ink)}
+a.lrow:hover{border-color:var(--blue);color:var(--ink)} .lrow .c{display:inline-grid;place-items:center;min-width:38px;height:30px;border-radius:999px;background:var(--soft);font-size:12px;font-weight:700}
+.lrow .n{flex:1;line-height:1.3} .lrow .n small{display:block;color:var(--muted);font-size:12.5px} .lrow .go{color:var(--blue);font-size:13px;white-space:nowrap}
+.lrow.pilot{border-style:dashed}
+.ltitle{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+/* få kursen */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;background:var(--soft)}
+.card h3{margin:4px 0 6px;font-size:18px;font-weight:600;color:var(--navy)} .card p{margin:0;font-size:15px}
+.note{border-left:4px solid var(--gold);background:var(--hcp-soft);padding:12px 16px;border-radius:0 var(--radius) var(--radius) 0;margin:18px 0;font-size:15px;max-width:52rem}
+/* ny språkversion */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);counter-reset:s;margin:10px 0 6px}
+.steps div{padding:14px 16px;border:1px solid var(--border);margin-right:-1px;background:var(--bg);font-size:14.5px}
+.steps div:first-child{border-radius:var(--radius) 0 0 var(--radius)} .steps div:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.steps b{display:block;color:var(--navy)} .steps b::before{counter-increment:s;content:counter(s) " · ";color:var(--gold-ink)}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}.steps div{border-radius:0!important;margin:0 -1px -1px 0}}
+/* arbetet bakom */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tile{border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;background:var(--bg);box-shadow:var(--shadow)}
+.tile .n{font-size:34px;font-weight:300;line-height:1.1;color:var(--navy)} .tile .t{font-size:14px;color:var(--muted);margin-top:4px}
+.credits{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:22px}
+.credits div{border-top:3px solid var(--gold);padding-top:10px;font-size:15px} .credits b{display:block;color:var(--navy)}
+/* formuläret */
+#form{display:none;border:1px solid var(--blue);border-radius:var(--radius);padding:18px 20px;margin:18px 0;max-width:46rem;background:var(--bg)}
+#form.open{display:block} #form label{display:block;font-size:13.5px;color:var(--muted);margin:10px 0 3px}
+#form input,#form textarea,#form select{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--ink)}
+#form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px} #form textarea{min-height:90px}
+.ok{color:var(--ok);font-weight:600} .err{color:var(--chg);font-weight:600}
+footer{margin-top:60px;padding:28px 0 40px;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;gap:30px;flex-wrap:wrap;justify-content:space-between}
+</style>
+<meta name="robots" content="noindex"></head><body><div style="margin:0;padding:.4rem 1rem;background:#fff3c4;color:#3d3200;font:14px/1.4 system-ui,sans-serif;text-align:center;border-bottom:1px solid #d9c66a"><strong>Demo</strong> · this is the project's own site, shown as it is · <a style="color:inherit" href="../">← All projects on ehealth-implementation.eu</a></div>
+<div class="top"><div class="wrap"><a class="logo" href="./"><span class="a">DEAHL</span><span class="b">KIT</span></a>
+  <nav class="nav"><a href="https://deahlkit.ehealth-implementation.eu/languages/Learn.html">Course lab</a><a href="https://deahlkit.ehealth-implementation.eu/languages/Course.html">The course</a><a href="#languages">Languages</a><a href="#get">Get the course</a><a href="#new">A new language</a><a href="#work">The work behind it</a></nav>
+  <div class="studio" id="studio"><span class="auth" id="auth"></span></div></div></div>
+
+<div class="wrap" id="nowwrap" style="padding-top:16px"></div>
+
+<div class="hero"><div class="wrap"><div>
+  <div class="eyebrow">Digital health literacy · for healthcare</div>
+  <h1>DEAHLKit: a course for healthcare in the digital age</h1>
+  <p>Six modules, each in two editions (for healthcare managers and for healthcare professionals) about communication, vulnerable groups, accessibility, trust and leadership when health services go digital. Short films from the fictional Northviken Health and Care Centre, reflection and quizzes, in 7 languages.</p>
+  <div class="cta"><a class="btn pri" href="https://deahlkit.ehealth-implementation.eu/languages/Learn.html">Try the course in our lab →</a><a class="btn" href="https://deahlkit.ehealth-implementation.eu/languages/Course.html">Explore every language</a><a class="btn" href="#get">Get it for your learning platform</a></div></div>
+  <div class="art" aria-hidden="true"><div><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG5.png" alt=""></div><div><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG6.png" alt=""></div><div><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG1.png" alt=""></div><div><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG2.png" alt=""></div><div><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG3.png" alt=""></div><div><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG4.png" alt=""></div></div></div></div>
+
+<main class="wrap">
+<section id="modules"><div class="eyebrow">The course</div><h2>Six modules</h2>
+  <p class="sub">Every module has two editions: one for managers, one for healthcare professionals. Open a module to read it slide by slide, or play it the way a learner meets it.</p>
+  <div class="mods"><a class="mod" href="https://deahlkit.ehealth-implementation.eu/languages/Course.html#m=WG5-M"><div class="im"><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG5.png" alt="" loading="lazy"></div><div class="tx"><span class="eyebrow">Module 1</span><b>Introduction</b></div></a><a class="mod" href="https://deahlkit.ehealth-implementation.eu/languages/Course.html#m=WG6-M"><div class="im"><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG6.png" alt="" loading="lazy"></div><div class="tx"><span class="eyebrow">Module 2</span><b>Leadership and organisational commitment</b></div></a><a class="mod" href="https://deahlkit.ehealth-implementation.eu/languages/Course.html#m=WG1-M"><div class="im"><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG1.png" alt="" loading="lazy"></div><div class="tx"><span class="eyebrow">Module 3</span><b>Clear communication, information and guidance</b></div></a><a class="mod" href="https://deahlkit.ehealth-implementation.eu/languages/Course.html#m=WG2-M"><div class="im"><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG2.png" alt="" loading="lazy"></div><div class="tx"><span class="eyebrow">Module 4</span><b>Addressing vulnerable groups</b></div></a><a class="mod" href="https://deahlkit.ehealth-implementation.eu/languages/Course.html#m=WG3-M"><div class="im"><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG3.png" alt="" loading="lazy"></div><div class="tx"><span class="eyebrow">Module 5</span><b>Accessibility, findability and usability</b></div></a><a class="mod" href="https://deahlkit.ehealth-implementation.eu/languages/Course.html#m=WG4-M"><div class="im"><img src="https://deahlkit.ehealth-implementation.eu/bilder/HM-WG4.png" alt="" loading="lazy"></div><div class="tx"><span class="eyebrow">Module 6</span><b>Fostering trust in digital health services</b></div></a></div></section>
+
+<section id="languages"><div class="eyebrow">In your language</div><h2>7 languages, and room for more</h2>
+  <p class="sub">The English master and a version for every partner country. Each language was reviewed by a national team: every spoken line, every on-screen text and every subtitle.</p>
+  <div class="langs" id="langs"></div></section>
+
+<section id="get"><div class="eyebrow">Use it where your staff learn</div><h2>Three ways to bring DEAHLKit to your learners</h2>
+  <p class="sub">DEAHLKit is made to be reused. Every language version can be brought into the systems your organisation already uses, or used as it is, online.</p>
+  <div class="cards">
+    <div class="card"><div class="eyebrow">Import</div><h3>H5P files into your platform</h3><p>One file per module and edition, imported into any learning platform that supports H5P, for example Moodle, WordPress or Canvas. You host it yourself.</p></div>
+    <div class="card"><div class="eyebrow">Embed</div><h3>SCORM in your learning system</h3><p>The modules packaged for learning management systems that take SCORM, so completion can be followed in your own system.</p></div>
+    <div class="card"><div class="eyebrow">Online</div><h3>Open on DEAHL.eu</h3><p>Every language version as open e-learning on the DEAHL website, with nothing to install. New language versions can be published there too, and then brought into other systems in the same ways.</p></div>
+  </div>
+  <p class="muted" style="font-size:15px;margin-top:14px">The 64 films of each language are published on YouTube with subtitles and linked from the course; they are also available as 1080p files. How the course was made and where AI was used: <a href="https://deahlkit.ehealth-implementation.eu/languages/AI.html">use of AI in DEAHLKit</a>.</p>
+  <div class="note"><b>A lab environment.</b> The course for learners is on DEAHL.eu. On this site the DEAHLKit production team also runs and tests the course in a lab environment, to learn and to try out features that could be valuable: a text view for accessibility (WCAG), different ways for learners to sign in, and a short evaluation after each module. What proves useful can be offered to the consortium and to the platforms that host DEAHLKit.</div>
+  <div class="note">Version 1.0 of each language is the version used in the pilot. Tell us if you would like to use DEAHLKit in your organisation, and we will get back to you.</div>
+  <button class="btn pri" data-form="use">I'd like to use DEAHLKit</button></section>
+
+<section id="new"><div class="eyebrow">Your country, your language</div><h2>A new language version starts with a conversation</h2>
+  <p class="sub">DEAHLKit is built to travel. Tell us about your country, your language and your learners. Then we choose together the way that fits you. There are two ways, and the same agreement for both.</p>
+  <div class="cards">
+    <div class="card"><div class="eyebrow">Way 1</div><h3>Do it yourselves</h3>
+      <p>Your team makes the version with the same tools, master and guides the first seven languages were made with. We give guidance, access to the Studio and the up-to-date English master. Your team carries the work and its own licences (for example Vyond and AI voices).</p></div>
+    <div class="card"><div class="eyebrow">Way 2</div><h3>Get help from the DEAHL team</h3>
+      <p>The DEAHL production team builds the version with you (translation support, audio, edited and published films and course packages) at cost price: the estimated effort in person-months (with a margin), at the Interreg Baltic Sea Region standard hourly rate for the country of the people doing the work, plus 15% for office costs such as licences and tools.</p></div>
+  </div>
+  <div class="steps"><div><b>Translation</b>Translation proposals for every text, with agreed terms for the whole course.</div><div><b>Review</b>Your national team reviews every text and spoken line in the Studio.</div>
+    <div><b>Audio</b>Every character's lines are recorded in your language.</div><div><b>Films</b>The 64 films are rebuilt from the English master films, with the new audio and on-screen text.</div><div><b>Packages</b>The course in your language, online or ready for your own platform.</div></div>
+  <div class="note"><b>Whichever way you choose, you agree that your language version</b><br>
+    1 · stays in line with the English master and follows its updates;<br>
+    2 · is published and made available for use in the same way as the other language versions (CC BY-NC-ND 4.0, with DEAHL as publisher);<br>
+    3 · has a maintenance plan for future updates when the master changes;<br>
+    4 · has two named national contact persons, connected to the DEAHL production team.</div>
+  <p class="muted" style="font-size:14px;max-width:52rem">DEAHLKit is not a commercial product, and the course itself is free to use. Any cost covers only the development and maintenance work the DEAHL consortium carries out for a new version, during or after the project, so that the results of the Interreg project last. <i>Draft: the terms and the maintenance plan are decided by the consortium.</i></p>
+  <button class="btn pri" data-form="language">Start the conversation</button>
+  <form id="form" autocomplete="on"><div class="eyebrow" id="ftitle"></div>
+    <div class="row"><div><label for="f_name">Name</label><input id="f_name" required></div><div><label for="f_email">E-mail</label><input id="f_email" type="email" required></div></div>
+    <div class="row"><div><label for="f_org">Organisation</label><input id="f_org"></div><div><label for="f_country">Country</label><input id="f_country"></div></div>
+    <label for="f_note">Message</label><textarea id="f_note" placeholder="Which language? Which learning platform? How many learners?"></textarea>
+    <p class="muted" style="font-size:13px">We use your details only to answer you. See the <a href="https://deahlkit.ehealth-implementation.eu/privacy.html">privacy policy</a>.</p>
+    <button class="btn pri" type="submit">Send</button> <span id="fmsg"></span></form></section>
+
+<section id="work"><div class="eyebrow">The work behind it</div><h2>Made by many hands</h2>
+  <p class="sub">DEAHLKit was produced in the Interreg Baltic Sea Region project DEAHL Baltic. These are some of the numbers behind the language versions, as of 28 October 2026.</p>
+  <div class="tiles"><div class="tile"><div class="n">448</div><div class="t">films: 64 in each of the 7 language versions</div></div><div class="tile"><div class="n">6 755</div><div class="t">spoken lines approved by the national teams</div></div><div class="tile"><div class="n">11 022</div><div class="t">on-screen texts reviewed</div></div><div class="tile"><div class="n">2 063</div><div class="t">corrections to lines, on-screen texts and subtitles</div></div><div class="tile"><div class="n">18 792</div><div class="t">AI voice recordings made to find the right one</div></div><div class="tile"><div class="n">622</div><div class="t">film versions uploaded for review</div></div><div class="tile"><div class="n">12 · 423</div><div class="t">course modules (6 × 2 editions) and slides</div></div></div>
+  <div class="credits">
+    <div><b>National review teams</b>In every partner country, people who listened to every line, read every on-screen text and checked every subtitle, and asked for it again until it was right.</div>
+    <div><b>Vyond builders</b>Who rebuilt all 64 films in each language, scene by scene, with new audio and on-screen text.</div>
+    <div><b>Working groups and production team</b>Who wrote the modules, the Northviken stories and the film scripts, and built the tools that held it all together.</div>
+  </div></section>
+</main>
+<footer><div class="wrap"><div>DEAHLKit is produced by the DEAHL Baltic consortium, co-funded by the European Union through Interreg Baltic Sea Region.<br>
+  Northviken, its characters and DEAHL-Connect are fictional. The course contains no personal or patient data.<br>
+  Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. New language versions are made together with DEAHL as publisher.</div>
+  <div><a href="https://deahlkit.ehealth-implementation.eu/languages/AI.html">Use of AI in DEAHLKit</a><br><a href="https://deahlkit.ehealth-implementation.eu/privacy.html">Privacy policy</a><br><a href="https://deahlkit.ehealth-implementation.eu/languages/Cookies.html">Cookies and storage</a><br><a href="../roles/">Studio (for the teams)</a><br><a href="https://deahlkit.ehealth-implementation.eu/granskning/">Review archive (pilot round)</a></div></div></footer>
+<script>
+
+const PORTAL = "portal.php";
+let ME = null;
+async function pget2(u){ const r = await fetch(u, {cache:"no-store", credentials:"same-origin"}); const j = await r.json().catch(() => ({})); if(!r.ok) throw new Error(j.error || "HTTP " + r.status); return j; }
+async function pget(q){ const r = await fetch(PORTAL + "?" + q, {cache:"no-store", credentials:"same-origin"}); const j = await r.json().catch(() => ({})); if(!r.ok) throw new Error(j.error || "HTTP " + r.status); return j; }
+async function ppost(body, url){ const r = await fetch(url || PORTAL, {method:"POST", credentials:"same-origin", headers:{"Content-Type":"application/json"}, body: JSON.stringify(body)});
+  const j = await r.json().catch(() => ({})); if(!r.ok) throw new Error(j.error || "HTTP " + r.status); return j; }
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ROLE = {reviewer:"Reviewer", builder:"Vyond builder", editor:"Editor (master)", admin:"Production team (admin)"};
+const GROUP = {national:"National team", project:"DEAHL project group", production:"Production team"};
+async function loadMe(){
+  let pend = null;
+  try{ const j = await pget("me=1"); ME = j.me; pend = j.mfa; }catch(_){ ME = null; }
+  const el = document.getElementById("auth"); if(!el) return ME;
+  el.innerHTML = ME
+    ? `<a href="../roles/">Studio</a> · Signed in as <b>${esc(ME.name || ME.email)}</b> · ${esc((ME.groups || []).length ? ME.groups.map(g => GROUP[g] + (g === "national" && (ME.team_langs || []).length ? " " + ME.team_langs.join(", ") : "")).join(" · ") : (ROLE[ME.role] || ME.role))}${ME.role === "admin" ? ' · <a href="https://deahlkit.ehealth-implementation.eu/languages/Admin.html">Admin</a>' : ""} · <a href="#" id="logout">Sign out</a>`
+    : pend ? `<a href="../roles/"><b>Finish signing in (authenticator app) →</b></a>` : `<a href="../roles/">Sign in</a> · <a href="../roles/">Request access</a>`;
+  const lo = document.getElementById("logout");
+  if(lo) lo.onclick = async e => { e.preventDefault(); await ppost({action:"logout"}).catch(() => {}); location.reload(); };
+  return ME;
+}
+
+const LANGS = [{"code": "EN", "name": "English", "status": "The master: source of every language", "kind": "master", "course": true}, {"code": "SV", "name": "Svenska", "kind": "pub", "course": true, "status": "Version 1.0 · pilot"}, {"code": "DA", "name": "Dansk", "kind": "pub", "course": true, "status": "Version 1.0 · pilot"}, {"code": "DE", "name": "Deutsch", "kind": "pub", "course": true, "status": "Version 1.0 · pilot"}, {"code": "PL", "name": "Polski", "kind": "pub", "course": true, "status": "Version 1.0 · pilot"}, {"code": "LV", "name": "Latviešu", "kind": "pub", "course": true, "status": "Version 1.0 · pilot"}, {"code": "FI", "name": "Suomi", "kind": "pub", "course": true, "status": "Version 1.0 · pilot"}, {"code": "ET", "name": "Eesti", "kind": "pilot", "course": true, "status": "Draft translation and audio, not decided"}, {"code": "LT", "name": "Lietuvių", "kind": "pilot", "course": true, "status": "Draft translation and audio, not decided"}, {"code": "NO", "name": "Norsk (bokmål)", "kind": "pilot", "course": true, "status": "Draft translation and audio, not decided"}];
+const kind = {master: "The English master", pub: "Version 1.0 · pilot", round: "", pilot: "Prepared as a new language"};
+function langs(){
+  const row = l => `<${l.course ? "a" : "div"} class="lrow${l.kind === "pilot" ? " pilot" : ""}"${l.course ? ` href="https://deahlkit.ehealth-implementation.eu/languages/Course.html#lang=${l.code}"` : ""}><span class="c">${l.code}</span>
+    <span class="n">${esc(l.name)}<small>${esc(l.status)}</small></span>${l.course ? '<span class="go">See the course →</span>' : ""}</${l.course ? "a" : "div"}>`;
+  document.getElementById("langs").outerHTML = `<div class="langs">${LANGS.filter(l => l.kind !== "pilot").map(row).join("")}</div>
+    <div class="ltitle">Prepared as possible new languages</div><div class="langs">${LANGS.filter(l => l.kind === "pilot").map(row).join("")}</div>`;
+}
+let WHAT = "use";
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-form]"); if(!b) return;
+  try{ window.deahlHit && window.deahlHit("form_open_" + b.dataset.form); }catch(_){}
+  WHAT = b.dataset.form; const f = document.getElementById("form");
+  document.getElementById("ftitle").textContent = WHAT === "use" ? "I'd like to use DEAHLKit" : "We'd like DEAHLKit in our language";
+  b.after(f); f.classList.add("open"); document.getElementById("f_name").focus();
+});
+document.getElementById("form").addEventListener("submit", async e => {
+  e.preventDefault(); const v = id => document.getElementById(id).value, m = document.getElementById("fmsg");
+  try{ throw new Error("This is a demo: nothing is sent. On the real page your message reaches the DEAHL team."); await ppost({action: "interest", what: WHAT, name: v("f_name"), email: v("f_email"), org: v("f_org"), country: v("f_country"), note: v("f_note")});
+       m.className = "ok"; m.textContent = "Thank you! We will get back to you."; try{ window.deahlHit && window.deahlHit("form_sent"); }catch(_){} e.target.querySelector("button").disabled = true; }
+  catch(err){ m.className = "err"; m.textContent = err.message; }
+});
+langs();
+document.getElementById("studio").innerHTML = `<a href="../roles/">Studio · sign in</a>`;
+</script></body></html>

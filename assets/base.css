@@ -66,3 +66,13 @@ nav .sep { border-left: 1px solid var(--border); margin: 0 .2rem; }
 .btnrow { display: flex; flex-wrap: wrap; gap: .6rem; } .btnrow .button { margin-top: .25rem; }
 .button.light { background: var(--surface); color: var(--primary); border: 1px solid var(--primary); }
 .plogo .wordmark { font-size: 2rem; }
+.wfig { margin: 1.25rem 0; } .wfig figcaption { font-size: .88rem; color: var(--muted, #555b66); margin-top: .4rem; }
+.wfig-in { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius, .4rem); padding: 1rem; }
+.fslide { background: #fff; border: 1px solid var(--border); padding: 1rem; aspect-ratio: 16 / 9; display: flex; flex-direction: column; gap: .6rem; overflow: hidden; }
+.fbox { border: 1px dashed var(--border); padding: .4rem .6rem; font-size: .95rem; position: relative; }
+.fbox.flagged { border: 2px solid var(--accent); max-height: 3.4rem; overflow: hidden; }
+.fflag { position: absolute; right: 0; top: 0; background: var(--accent); color: #fff; font-size: .72rem; padding: .05rem .4rem; }
+.fpanel ul { margin: 0 0 .8rem; padding-left: 1.1rem; font-size: .93rem; } .fpanel li { margin: .3rem 0; }
+.fbtn { display: inline-block; background: var(--primary); color: #fff; border-radius: var(--radius, .3rem); padding: .3rem .7rem; font-size: .88rem; font-weight: 600; margin: 0 .4rem .3rem 0; }
+.fbtn.light { background: var(--surface); color: var(--primary); border: 1px solid var(--primary); }
+@media (max-width: 640px) { .wfig-in { grid-template-columns: 1fr; } }
