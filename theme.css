@@ -6,6 +6,9 @@
 .project.accent-deahlkit .wm-0 { color: #0b74b8; }
 .project.accent-deahlkit .wm-1 { color: #e8a020; }
 .project.accent-digih4a { border-top-color: #003399; }
+.project.accent-amber-bridge { border-top-color: #003399; }
+.project.accent-amber-bridge .wm-0 { color: #003399; }
+.project.accent-amber-bridge .wm-1 { color: #c4461a; }
 :root {
   --primary: #003399;
   --accent: #7a5c00;

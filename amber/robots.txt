@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://iou-angelhaven.github.io/demo/amber/sitemap.xml

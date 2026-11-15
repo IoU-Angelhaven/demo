@@ -1,0 +1,22 @@
+.wordmark .wm-0 { color: #003399; }
+.wordmark .wm-1 { color: #c4461a; }
+@font-face { font-family: 'Open Sans'; font-weight: 300; font-display: swap; src: url('theme/open-sans-300.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 400; font-display: swap; src: url('theme/open-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 600; font-display: swap; src: url('theme/open-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 700; font-display: swap; src: url('theme/open-sans-700.woff2') format('woff2'); }
+:root {
+  --primary: #003399;
+  --accent: #c4461a;
+  --heading: #003399;
+  --heading2: #c4461a;
+  --label: #c4461a;
+  --text: #1d2939;
+  --muted: #5f717b;
+  --background: #f4f6fa;
+  --surface: #ffffff;
+  --border: #dde2ec;
+  --h1-weight: 300;
+  --h2-weight: 400;
+  --radius: 4px;
+  --font: 'Open Sans', Arial, sans-serif;
+}
