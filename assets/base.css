@@ -83,3 +83,39 @@ nav .sep { border-left: 1px solid var(--border); margin: 0 .2rem; }
 p.small { font-size: .85rem; margin: .1rem 0 .3rem; }
 .pageform input:not([type=hidden]), .pageform textarea { width: 100%; max-width: 100%; }
 code.key { display: inline-block; padding: .5rem .7rem; background: var(--background); border: 1px solid var(--border); border-radius: .3rem; word-break: break-all; font-size: 1rem; }
+/* Northviken: Meet Northviken (kapitel), personer, tidslinje och förslagsflödet */
+.nv-steps { list-style: none; padding: 0; margin: .5rem 0 1.5rem; display: flex; flex-wrap: wrap; gap: .3rem; counter-reset: nv; }
+.nv-steps li { counter-increment: nv; }
+.nv-steps a { display: inline-block; padding: .3rem .6rem; border: 1px solid var(--border); border-radius: 1rem; font-size: .85rem; text-decoration: none; background: var(--surface); }
+.nv-steps a::before { content: counter(nv) " · "; color: var(--muted, #63636b); }
+.nv-steps li[aria-current] a { background: var(--primary); border-color: var(--primary); color: #fff; }
+.nv-steps li[aria-current] a::before { color: #fff; }
+.nv-pn { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.nv-toc { counter-reset: nv; }
+.nv-toc li { counter-increment: nv; }
+.nv-toc li strong::before { content: counter(nv) ". "; }
+.nv-people { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 1rem; }
+.nv-people a { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .25rem; padding: .8rem .5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius, .4rem); text-decoration: none; height: 100%; }
+.nv-people span { font-size: .85rem; color: #555b66; }
+.nv-fig { height: 9rem; width: auto; }
+.nv-fig.big { height: 18rem; }
+.nv-ini { display: inline-flex; align-items: center; justify-content: center; width: 4.5rem; height: 4.5rem; margin: 1.5rem 0 1rem; border-radius: 50%; background: var(--background); border: 2px solid var(--primary); color: var(--primary); font-size: 1.4rem; font-weight: 700; }
+.nv-ini.big { width: 8rem; height: 8rem; font-size: 2.4rem; margin: 0; }
+.nv-profile { display: flex; gap: 2rem; align-items: flex-start; }
+.nv-profile > div { flex: 1; }
+.nv-quote { margin: 1rem 0; padding: .6rem 1rem; border-left: 4px solid var(--accent); background: var(--surface); font-style: italic; }
+.nv-two { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.nv-time { list-style: none; padding: 0; border-left: 3px solid var(--border); margin-left: .5rem; }
+.nv-time li { position: relative; padding: 0 0 1.2rem 1.4rem; display: flex; flex-direction: column; }
+.nv-time li::before { content: ""; position: absolute; left: -.55rem; top: .3rem; width: .8rem; height: .8rem; border-radius: 50%; background: var(--primary); }
+.nv-at { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted, #63636b); }
+.nv-flow { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem; margin: 1rem 0; }
+.nv-flow li { padding: .3rem .7rem; border: 1px solid var(--border); border-radius: .3rem; font-size: .85rem; background: var(--surface); }
+.nv-flow li.done { color: var(--muted, #63636b); }
+.nv-flow li[aria-current] { border-color: var(--primary); box-shadow: inset 0 -3px 0 var(--primary); font-weight: 600; }
+.nv-flow li + li::before { content: "→ "; color: var(--muted, #63636b); }
+.nv-prompt { white-space: pre-wrap; background: var(--surface); border: 1px solid var(--border); padding: 1rem; font-size: .9rem; }
+.nv-answers dt { font-weight: 600; margin-top: .8rem; }
+.nv-answers dd { margin: .2rem 0 0; }
+.nv-use { border-top: 4px solid var(--primary); background: var(--surface); padding: .5rem 1.2rem 1rem; margin: 1rem 0; }
+@media (max-width: 640px) { .nv-two { grid-template-columns: 1fr; } .nv-profile { flex-direction: column; } }

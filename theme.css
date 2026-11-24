@@ -9,6 +9,9 @@
 .project.accent-amber-bridge { border-top-color: #003399; }
 .project.accent-amber-bridge .wm-0 { color: #003399; }
 .project.accent-amber-bridge .wm-1 { color: #c4461a; }
+.project.accent-northviken { border-top-color: #1f5f6b; }
+.project.accent-northviken .wm-0 { color: #1f5f6b; }
+.project.accent-northviken .wm-1 { color: #b5562c; }
 :root {
   --primary: #003399;
   --accent: #7a5c00;
