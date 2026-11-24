@@ -1,0 +1,14 @@
+.wordmark .wm-0 { color: #1f5f6b; }
+.wordmark .wm-1 { color: #b5562c; }
+:root {
+  --primary: #1f5f6b;
+  --accent: #b5562c;
+  --highlight: #e9c46a;
+  --heading: #1f5f6b;
+  --text: #1d2326;
+  --muted: #5b6569;
+  --background: #f2f5f4;
+  --surface: #ffffff;
+  --border: #c9d4d2;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
