@@ -119,3 +119,6 @@ code.key { display: inline-block; padding: .5rem .7rem; background: var(--backgr
 .nv-answers dd { margin: .2rem 0 0; }
 .nv-use { border-top: 4px solid var(--primary); background: var(--surface); padding: .5rem 1.2rem 1rem; margin: 1rem 0; }
 @media (max-width: 640px) { .nv-two { grid-template-columns: 1fr; } .nv-profile { flex-direction: column; } }
+.shot { margin: 1.5rem 0; }
+.shot img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius, .4rem); background: #fff; }
+.shot figcaption { font-size: .85rem; color: #555b66; margin-top: .4rem; }
